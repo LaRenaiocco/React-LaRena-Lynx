@@ -1,23 +1,25 @@
 import Head from 'next/head'
-import Header from '@components/Header'
+import Link from 'next/link'
+import Layout, {siteTitle} from '@components/Layout'
+import utilStyles from '@styles/utils.module.css'
 import Footer from '@components/Footer'
 
 export default function Home() {
   return (
-    <div className="container">
+    <Layout home>
       <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
-
+      <section className={utilStyles.headingMd}>
+        <p>Circus clown turned software engineer.</p>
+      </section>
+      <div>
+          Read{' '}
+          <Link href="posts/first-post">
+            <a>this page!</a>
+          </Link>
+      </div>
       <Footer />
-    </div>
+    </Layout>
   )
 }
